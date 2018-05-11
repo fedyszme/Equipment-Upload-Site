@@ -1,0 +1,53 @@
+﻿@model IEnumerable<EquipmentUpload.Models.Equipment>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h3>Equipment List</h3>
+<p>Here is a list of all of the equipment that has been uploaded to the equipment database. To upload new equipment, please hit Create New</p>
+<br />
+<h4>
+    @Html.ActionLink("Create New", "Create")
+</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EquipmentId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PressureRating)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TemperatureRating)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EquipmentId)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PressureRating)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TemperatureRating)
+        </td>       
+    </tr>
+}
+
+</table>

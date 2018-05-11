@@ -1,0 +1,42 @@
+﻿@model EquipmentUpload.Models.DatabaseHandles
+
+@{
+    ViewBag.Title = "Create";
+}
+
+
+
+    <h3>Equipment Upload</h3>
+    <p>Please use the correct equipment template! The Equipment Name, Type, and Id must be filled out. The Id must be unique.</p>
+    <p>Select your file and hit Submit!</p>
+    <hr />
+
+    <div class="form-horizontal">
+        <div>
+            @using (Html.BeginForm("Create", "Equipment", FormMethod.Post, new { enctype = "multipart/form-data" }))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-group">
+                <div>
+                    <input type="file" name="postedFile" />
+                    <br />
+                    <input type="submit" value="Submit" class="btn btn-default" />
+                </div>
+            </div>
+    }
+        </div>
+        <p class="alert-danger">@ViewBag.ErrorMess</p>
+        <p class="alert-success">@ViewBag.RowsCount</p>
+    </div>
+
+
+
+
+
+    <div>
+        @Html.ActionLink("Back to List", "Index")
+    </div>
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
